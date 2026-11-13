@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Clipper Studio</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0b0d12;color:#e9ecf3;font-family:system-ui,sans-serif;text-align:center;padding:20px}p{color:#9aa3b8}</style></head>
+<body><div><h2 id="t">Page not found</h2><p id="m"></p></div>
+<script>
+// OAuth bridge for GitHub Pages: any URL containing /oauth/ is forwarded (with code & state)
+// to Clipper Studio running locally on this computer.
+var p = location.pathname, i = p.indexOf("/oauth/");
+if (i !== -1) {
+  var target = "http://localhost:8000" + p.slice(i).replace(/\/$/, "") + location.search + location.hash;
+  document.getElementById("t").textContent = "جاري الرجوع إلى Clipper Studio…";
+  document.getElementById("m").textContent = "If nothing happens, make sure the app is running, then open: " + target;
+  location.replace(target);
+}
+</script></body></html>
